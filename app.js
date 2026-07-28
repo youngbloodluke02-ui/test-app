@@ -1,4 +1,4 @@
-const STORAGE_KEY = "simple-tasks";
+const STORAGE_KEY = "workout-exercises";
 
 const form = document.getElementById("task-form");
 const input = document.getElementById("task-input");
@@ -57,7 +57,7 @@ function render() {
   emptyState.style.display = visible.length === 0 ? "block" : "none";
 
   const activeCount = tasks.filter((t) => !t.completed).length;
-  taskCount.textContent = `${activeCount} task${activeCount === 1 ? "" : "s"} left`;
+  taskCount.textContent = `${activeCount} exercise${activeCount === 1 ? "" : "s"} remaining`;
 }
 
 function addTask(text) {

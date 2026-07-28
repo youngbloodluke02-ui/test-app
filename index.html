@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simple Tasks</title>
+<title>Workout Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="app">
-    <h1>Simple Tasks</h1>
+    <h1>Workout Tracker</h1>
 
     <form id="task-form" class="task-form">
       <input
         type="text"
         id="task-input"
-        placeholder="What needs doing?"
+        placeholder="Add an exercise"
         autocomplete="off"
         required
       >
@@ -23,17 +23,17 @@
 
     <div class="filters" id="filters">
       <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="active">Active</button>
-      <button class="filter-btn" data-filter="completed">Completed</button>
+      <button class="filter-btn" data-filter="active">Remaining</button>
+      <button class="filter-btn" data-filter="completed">Done</button>
     </div>
 
     <ul id="task-list" class="task-list"></ul>
 
-    <p id="empty-state" class="empty-state">No tasks yet — add one above.</p>
+    <p id="empty-state" class="empty-state">No exercises yet — add one above.</p>
 
     <footer class="app-footer">
-      <span id="task-count">0 tasks</span>
-      <button id="clear-completed" class="link-btn">Clear completed</button>
+      <span id="task-count">0 exercises</span>
+      <button id="clear-completed" class="link-btn">Clear done</button>
     </footer>
   </main>
 
