@@ -1,66 +1,35 @@
 :root {
-  --bg: #eef1ec;
+  /* iOS systemGroupedBackground / systemBackground / label hierarchy, light only by default */
+  --bg: #f2f2f7;
   --surface: #ffffff;
-  --surface-2: #f5f7f2;
-  --ink: #12181f;
-  --muted: #6c766d;
-  --border: #dde2d8;
-  --accent: #e8491c;
-  --accent-ink: #fffaf5;
-  --accent-soft: #fde6db;
-  --done: #3f8a5c;
-  --done-soft: #e3f0e6;
-  --danger: #c0392b;
-  --focus: #2f6fed;
-  --shadow: 0 20px 44px -24px rgba(18, 24, 17, 0.24);
+  --surface-2: #f2f2f3;
+  --ink: #1c1c1e;
+  --muted: #8a8a8e;
+  --border: #e5e5ea;
+  --accent: #007aff;
+  --accent-ink: #ffffff;
+  --accent-soft: #e8f1ff;
+  --done: #34c759;
+  --done-soft: #e7f9ec;
+  --danger: #ff3b30;
+  --focus: var(--accent);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   --nav-height: 64px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #14171a;
-    --surface: #1b1f22;
-    --surface-2: #20252a;
-    --ink: #eef1ec;
-    --muted: #8b9490;
-    --border: #262b2f;
-    --accent: #ff6a3a;
-    --accent-ink: #1a0f09;
-    --accent-soft: #3a1f16;
-    --done: #5fbb84;
-    --done-soft: #1c3227;
-    --shadow: 0 20px 44px -24px rgba(0, 0, 0, 0.6);
-  }
-}
-
 :root[data-theme="dark"] {
-  --bg: #14171a;
-  --surface: #1b1f22;
-  --surface-2: #20252a;
-  --ink: #eef1ec;
-  --muted: #8b9490;
-  --border: #262b2f;
-  --accent: #ff6a3a;
-  --accent-ink: #1a0f09;
-  --accent-soft: #3a1f16;
-  --done: #5fbb84;
-  --done-soft: #1c3227;
-  --shadow: 0 20px 44px -24px rgba(0, 0, 0, 0.6);
-}
-
-:root[data-theme="light"] {
-  --bg: #eef1ec;
-  --surface: #ffffff;
-  --surface-2: #f5f7f2;
-  --ink: #12181f;
-  --muted: #6c766d;
-  --border: #dde2d8;
-  --accent: #e8491c;
-  --accent-ink: #fffaf5;
-  --accent-soft: #fde6db;
-  --done: #3f8a5c;
-  --done-soft: #e3f0e6;
-  --shadow: 0 20px 44px -24px rgba(18, 24, 17, 0.24);
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --surface-2: #2c2c2e;
+  --ink: #f2f2f7;
+  --muted: #98989d;
+  --border: #38383a;
+  --accent: #0a84ff;
+  --accent-ink: #ffffff;
+  --accent-soft: #0a2f4f;
+  --done: #30d158;
+  --done-soft: #16321f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -75,7 +44,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -92,25 +61,24 @@ button, input {
 
 .eyebrow {
   margin: 0 0 2px;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.09em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
 h1 {
   margin: 0;
-  font-size: 1.375rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 h2 {
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0 0 4px;
   text-wrap: balance;
 }
@@ -118,7 +86,7 @@ h2 {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 18px;
   box-shadow: var(--shadow);
 }
@@ -140,8 +108,8 @@ h2 {
   width: 100%;
   min-width: 0;
   padding: 11px 12px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  border: none;
+  border-radius: 12px;
   background: var(--surface-2);
   color: var(--ink);
   font-size: 0.95rem;
@@ -149,13 +117,13 @@ h2 {
   outline: none;
 }
 .field input:focus, .field select:focus {
-  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent);
 }
 
 .btn {
   appearance: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 14px;
   padding: 11px 18px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -205,8 +173,8 @@ select:focus-visible,
 .theme-toggle {
   width: 34px;
   height: 34px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
+  border-radius: 50%;
+  border: none;
   background: var(--surface-2);
   font-size: 1rem;
   cursor: pointer;
@@ -238,12 +206,11 @@ select:focus-visible,
 
 .variant-tabs {
   display: flex;
-  gap: 6px;
+  gap: 2px;
   margin-bottom: 16px;
-  padding: 3px;
+  padding: 2px;
   background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 11px;
+  border-radius: 10px;
 }
 .variant-tab {
   flex: 1;
@@ -273,15 +240,14 @@ select:focus-visible,
   flex-direction: column;
   gap: 8px;
   padding: 12px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+  background: var(--bg);
+  border-radius: 14px;
 }
 
 .exercise-name-input {
   padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
+  border: none;
+  border-radius: 10px;
   background: var(--surface);
   color: var(--ink);
   font-size: 0.95rem;
@@ -289,7 +255,7 @@ select:focus-visible,
   min-height: 44px;
   outline: none;
 }
-.exercise-name-input:focus { border-color: var(--accent); }
+.exercise-name-input:focus { box-shadow: 0 0 0 2px var(--accent); }
 
 .exercise-numbers {
   display: flex;
@@ -309,8 +275,8 @@ select:focus-visible,
 .exercise-numbers input {
   width: 56px;
   padding: 9px 8px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+  border: none;
+  border-radius: 9px;
   background: var(--surface);
   color: var(--ink);
   font-size: 0.9rem;
@@ -318,7 +284,7 @@ select:focus-visible,
   min-height: 40px;
   outline: none;
 }
-.exercise-numbers input:focus { border-color: var(--accent); }
+.exercise-numbers input:focus { box-shadow: 0 0 0 2px var(--accent); }
 
 .rep-range {
   display: flex;
@@ -331,10 +297,17 @@ select:focus-visible,
 .remove-exercise {
   margin-left: auto;
   align-self: center;
-  font-size: 1.1rem;
-  padding: 8px;
-  min-height: 40px;
-  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(255, 59, 48, 0.1);
+  font-size: 0.95rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-exercise-btn {

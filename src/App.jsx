@@ -8,25 +8,24 @@ import { loadProgram, saveProgram } from "./lib/storage";
 const THEME_KEY = "workout-tracker:theme";
 
 function ThemeToggle() {
-  const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || "");
+  // Defaults to light regardless of the device's system setting — only an
+  // explicit tap here switches it, so an iPhone in system Dark Mode still
+  // opens light by default.
+  const [theme, setTheme] = useState(() => localStorage.getItem(THEME_KEY) || "light");
 
   useEffect(() => {
-    if (theme) document.documentElement.setAttribute("data-theme", theme);
-    else document.documentElement.removeAttribute("data-theme");
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   function toggle() {
-    const current = theme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    const next = current === "dark" ? "light" : "dark";
+    const next = theme === "dark" ? "light" : "dark";
     localStorage.setItem(THEME_KEY, next);
     setTheme(next);
   }
 
-  const isDark = theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
-
   return (
     <button type="button" className="theme-toggle" onClick={toggle} aria-label="Toggle theme">
-      {isDark ? "☀️" : "🌙"}
+      {theme === "dark" ? "☀️" : "🌙"}
     </button>
   );
 }
